@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>linear_equations</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="선형 방정식의 정리" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">lyjun.log</a></h1>
+                <nav><ul>
+                    <li><a href="/category/algorithm.html">algorithm</a></li>
+                    <li><a href="/category/database.html">database</a></li>
+                    <li><a href="/category/datastructure.html">datastructure</a></li>
+                    <li class="active"><a href="/category/math.html">math</a></li>
+                    <li><a href="/category/writting.html">writting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/solving-to-linear-equations.html" rel="bookmark"
+           title="Permalink to linear_equations">linear_equations</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-01-31T23:15:00+09:00">
+                Published: Mon 31 January 2022
+        </abbr>
+		<br />
+        <abbr class="modified" title="2022-01-31T23:15:00+09:00">
+                Updated: Mon 31 January 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/junehan.html">junehan</a>
+        </address>
+<p>In <a href="/category/math.html">math</a>.</p>
+<p>tags: <a href="/tag/equations.html">equations</a> </p>
+</footer><!-- /.post-info -->      <div class="section" id="terminologies">
+<h2>Terminologies</h2>
+<blockquote>
+<dl class="docutils">
+<dt>Algebra</dt>
+<dd>문자와 기호가 수를 대표하는 수학의 부분.</dd>
+<dt>Coefficients</dt>
+<dd>곱할 수 있는 요소. 주로 자연수이며 주로 도형 등에 등장한다.</dd>
+<dt>Cartesian Coordinate System</dt>
+<dd>평면 속의 이 좌표 시스템은 각 지점이 unique한 2개의 숫자 좌표를 의미한다.</dd>
+<dt>Coordinate Plane</dt>
+<dd>다수의 것이 전체로서 효율적으로 동작하며, 선으로 모든 방향*(x, y)*으로 무한히 계속되는 것.</dd>
+<dt>linear equation</dt>
+<dd>일차 방정식, 선형으로 표현되는 최고 차수의 항(param)의 차수가 1을 넘지않는 다항식 함수를 뜻한다.</dd>
+<dt>polynomial function</dt>
+<dd>다항식 함수, 최고 차항의 함수에 따라 상수함수, 일차함수, 이차함수, 삼차함수, 사차함수, ...등으로 분류된다.</dd>
+<dt>Analytic geometry</dt>
+<dd>해석 기하학, n개의 성분으로 이루어진 좌표를 이용하여 도형의 성질을 탐구하는 기하학. 공간을 다루는데 있어서 빼놓을 수 없다. 위도와 경도로 나타내는 것도 해석기하학에서 도입되는 개념.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section" id="linear-equation">
+<h2>linear equation이란?</h2>
+<img alt="handnote to linear equation and functions" src="https://lh3.googleusercontent.com/pw/AM-JKLUTpuMeTqzYxFfJSaRLBRvXNN81VYDkCuamUrCzDV5R1s5o1wOQLeIm0SIkRIVgT5mKy1k7psZD0Mp-AgCVNyKU36oo1Dudn_1h6CC0SFoRvuJ_f8jxpPnDR8a_mMg-HWDxh1mz9kz71fEa5RYJuzSw=w1016-h1354-no?authuser=0" />
+<ul>
+<li><p class="first"><em>-y = 2x - 1</em>는 <em>Algebra</em>의 표본이다.</p>
+<blockquote>
+<ul class="simple">
+<li>여기서 <em>x, y</em>는 <em>coefficients</em>이며, 이들은 해당 equation의 parameter이다.</li>
+<li>즉, 이 parameter가 equation에 충족하는 값의 2개의 값으로 점, link로 표현 될 수 있었다.</li>
+<li>데카르트가 만든 <em>cartesian coordinate system in plane</em>에 등장하는 x, y축으로 표현되는 <em>coordinate plane</em>을 통해서,
+이 링크들은 관계적인 나열들이 하나의 선처럼 보여져서 설명될 수 있었다.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="intercept">
+<h2>Intercept란?</h2>
+<img alt="handnote to intercept" src="https://lh3.googleusercontent.com/pw/AM-JKLXtL3O4418RHjIsnfasR_b0vMCbW9kEEtb0dJT-B-jLDK8Otwqo-cZsg94FqM9PzJkzI4hPH3Pht67nVtdoqD5OJiL0tNuw861pr2gDdKkjGs8a3QOGuBOmrWz9ruTbV3XRp7wo_Qt27cEE5Cqkre3J=w1016-h1354-no?authuser=0" />
+<div class="line-block">
+<div class="line">좌표평면(cartesian coordinate system)에서 x축을 만나는 지점과 y축을 만나는 지점을 의미한다.</div>
+<div class="line">이 챕터에서는 linear equation에 적용한다.</div>
+<div class="line"><br /></div>
+<div class="line">그래픽으로 표현되는 선상의 점을 기준으로 이야기 하는데, 다르게 말하면</div>
+<div class="line">x의 값이 0일 때 y의 값과 그 반대 각각의 경우와 같다.</div>
+<div class="line">그래서 이걸 왜 굳이 별도의 개념으로 용어화 했는지를 보니,</div>
+<div class="line">wiki에 X-intercept와 Y-intercept를 구분해서 챕터를 또 나눠놓았어서 이 부분을 짧게 리서치 해보았다.</div>
+</div>
+<div class="section" id="x-intercept-points-crosses-the-x-axis-zero-of-a-function">
+<h3>X-intercept, points crosses the x-axis, Zero of a function</h3>
+<div class="line-block">
+<div class="line">수학에서, function <em>f</em>가 x에 대해 0의 값을 얻었을 때를 의미하고, 마찬가지로 <em>f(x) = 0</em>을 만족하는 x의 값을 의미한다.</div>
+<div class="line"><em>zero of a function</em>은 0의 값을 출력하는 입력값이 무엇인지에 대한 것이다.</div>
+</div>
+<blockquote>
+<ul class="simple">
+<li><em>linear equation</em>경우엔 기울기(slope?)가 있다면 반드시 하나의 point를 가질 것이고,</li>
+<li><em>polynomial function</em> root(zero output)는 해당 함수에 대해 0의 값에 대응하는 것을 의미한다.</li>
+</ul>
+</blockquote>
+</div>
+<div class="section" id="y-intercept-point-cross-the-y-axis">
+<h3>Y-intercept, point cross the y-axis, 기하해석학</h3>
+<div class="line-block">
+<div class="line"><em>Analytic geometry</em>에서, 수평선이 변수 x를 의미하고, 수직 선이 y를 의미하는 일반적인 표현을 사용하여 y-intercept 혹은, vertical intercept는 함수의 그래프 혹은 관계에서 coordinate systme의 y-axis를 교차하는 지점을 의미한다.</div>
+<div class="line">X-intercept가 출력이 0일 때 입력 값을 지칭한다면, Y-intercept는 입력이 0일 때, y의 값을 지칭한다.</div>
+</div>
+<p>따라서, function(식)의 개념에서 출력 0을 만족하는 입력은 다수 존재할 수 있으나, 입력이 0일 때 출력이 다수 존재한다는 말은 function(식)으로서의 기능을 잃었다라고 볼 수 있지 않나 생각해본다.</p>
+</div>
+</div>
+<div class="section" id="slope-for-coordinate-plane">
+<h2>Slope for coordinate plane, 그래프 선의 기울기</h2>
+<ul>
+<li><p class="first">이전장까지의 내용</p>
+<blockquote>
+<ul class="simple">
+<li>cartesian coordinate system위의 pair of coefficient, <em>(x, y)</em>는 point로 표현가능하다.</li>
+<li><em>point A</em>와 <em>point B</em>를 연결하면 coordinate plane위의 직선이 된다.</li>
+<li>해당 선은 직선이기 때문에, linear equation의 표현이 가능하다.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<img alt="handnote to slope" src="https://lh3.googleusercontent.com/pw/AM-JKLUg7dJEHhjjm-PAYLWB7ZnzRV8teXy5s5hhP1SKpnIRhyBXzeJ8JBl-qxuwXfeYZ28V-L4hBKI3MNX9KNJlGmajxEl24mZSCq8nH4851e5vRqHzl4Lkt7hpfvwnvlllie8jOYY_bX6jY5jpVUNR7FCy=w1016-h1354-no?authuser=0" />
+<p>두 개의 값으로 구성되는 좌표평면의 특성 상 기준 선 2개는</p>
+<blockquote>
+<ul class="simple">
+<li>X-axis: 입력 값, 진행</li>
+<li>Y-axis: 출력 값, 결과</li>
+</ul>
+<div class="line-block">
+<div class="line">위와 같이 의미론적으로 해석가능하다.</div>
+<div class="line">주로 이 기울기에 대해서, 해외에서는, <em>'rise over run', 진행에 비롯되는 상승</em>이라고 인식한다.</div>
+<div class="line">이제까지는 x를 y로 나는 주로 나눠왔는데, y를 x로 나누면 <em>'입력에 대한 출력의 변화 비율'</em>을 의미하기 때문에,</div>
+<div class="line">이는 함수를 정확히 표현하는 개념과 같다.</div>
+</div>
+</blockquote>
+<img alt="handnote to direction of the slope" src="https://lh3.googleusercontent.com/pw/AM-JKLUuxnUAg4Xs0o2JGYhDmRms7yNv9pMFOZQGH4OndjxhupU1-gGnY_FAQXYE0rAt5ry29cQz7RPv5kNNEzhXfV-2km1HQwEtyIfrykWS0hH2GxfttCOxNgqLMwIQ6sjoLSWlDiE4hGPa6B_58XtbrdDx=w1016-h1354-no?authuser=0" />
+<div class="line-block">
+<div class="line">여기서 x, y라는 값으로 수집된 것들을 데이터라고 하고</div>
+<div class="line">위의 기준으로 입력값에 대한 출력값 결과들이 나열된 것을 묶어 선으로 표현한 것이라면,</div>
+<div class="line"><br /></div>
+<div class="line">수직선과 수평선의 데이터가 있다고 했을 때, 이것은 아래의 의미를 갖는다.</div>
+</div>
+<blockquote>
+<ul class="simple">
+<li>수평선, horizontal line: <em>&quot;입력이 변해도 결과는 변하지 않는다.&quot;</em></li>
+<li>수직선, vertical line: <em>&quot;입력은 항상 동일한 상태로, 반면 결과는 여러가지이다.&quot;</em></li>
+</ul>
+</blockquote>
+<p>그렇다 애초에 한 개의 입력에 대해서 두 개의 결과를 갖는다는 것 자체가 규칙으로 보기엔 애매해지는 것이다.</p>
+<blockquote>
+<ul>
+<li><p class="first">수평선으로 표현되는 데이터는, 입력에 따라 변하지 않아 slope가 없다.</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">0(y2 - y1) / (x2 - x1)</tt>의 real number인 y는 출력변화가 없는 0이기 때문에 slope 0이다.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">수직선으로 표현되는 데이터는, 결과가 무한하여, infinite 혹은 undefined라고 부른다.</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal">(y2 - y1) / 0(x2 - x1)</tt>의 실수 변화치를 변하지 않는 값에 대조해봐야 의미가 없음.</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</div>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://github.com/l-y-jun">github</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://https://blog.naver.com/junehan-normal">usual posts</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

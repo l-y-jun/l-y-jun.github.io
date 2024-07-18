@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Query Primer 1. What is Query</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <meta name="description" content="how-dose-Query-work" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">lyjun.log</a></h1>
+                <nav><ul>
+                    <li><a href="/category/algorithm.html">algorithm</a></li>
+                    <li class="active"><a href="/category/database.html">database</a></li>
+                    <li><a href="/category/datastructure.html">datastructure</a></li>
+                    <li><a href="/category/math.html">math</a></li>
+                    <li><a href="/category/writting.html">writting</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/sql-query-explanations.html" rel="bookmark"
+           title="Permalink to Query Primer 1. What is Query">Query Primer 1. What is Query</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-08-05T13:35:00+09:00">
+                Published: Fri 05 August 2022
+        </abbr>
+		<br />
+        <abbr class="modified" title="2022-08-05T13:35:00+09:00">
+                Updated: Fri 05 August 2022
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/junehan.html">junehan</a>
+        </address>
+<p>In <a href="/category/database.html">database</a>.</p>
+<p>tags: <a href="/tag/sql.html">sql</a> </p>
+</footer><!-- /.post-info -->      <div class="section" id="subject">
+<h2>SUBJECT: 쿼리의 동작방식과 개요</h2>
+<blockquote>
+<ul>
+<li><p class="first">References</p>
+<blockquote>
+<ul class="simple">
+<li>text book, Learning sql 3rd edition</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<div class="section" id="terminolgy">
+<h3>TERMINOLGY</h3>
+<dl class="docutils">
+<dt>NULL</dt>
+<dd><div class="first last line-block">
+<div class="line">absence of vale, 값의 부재 주로 (알 수 없는, 비어있는)을 표시하는 데이터이다.</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="query">
+<h2>Query 동작방식</h2>
+<ol class="arabic">
+<li><p class="first">로그인</p>
+</li>
+<li><p class="first">connection id 발급 <em>(쿼리 실행 준비 완료)</em></p>
+<p><tt class="docutils literal">Your MYSQL connection id is 11</tt></p>
+<p>이 정보는 만약 데이터베이스의 운영자에게 유용한 정보이다.</p>
+<blockquote>
+<ul class="simple">
+<li>쿼리의 실수로 되돌리거나,</li>
+<li>수 시간동안 동작하는 쿼리를 중단시켜야 한다거나 할때.</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first">SQL 구문 전송</p>
+</li>
+<li><p class="first">사전평가</p>
+<p>DB서버는 아래의 조건들을 구문 실행 이전에 체크한다.</p>
+<blockquote>
+<ul class="simple">
+<li>구문을 실행 권한</li>
+<li>요구하는 데이터에 접근 권한</li>
+<li>올바른 SQL구문 체크</li>
+</ul>
+</blockquote>
+</li>
+<li><p class="first"><em>query optimizer</em>에 SQL 전달 (구문 평가 및 최적화)</p>
+<ol class="arabic simple">
+<li>어떤 테이블 조인할지, 어떤 것들이 인덱스가 걸려 있는지 확인</li>
+<li>실행가능한 <em>execution plan(쿼리를 실행하는)</em>을 수집</li>
+</ol>
+</li>
+<li><p class="first">쿼리 실행</p>
+</li>
+<li><p class="first">result set 테이블 반환</p>
+<ul>
+<li><p class="first">빈 테이블</p>
+<blockquote>
+<div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">first_name</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span>
+<span class="w">   </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">customer</span>
+<span class="w">   </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">last_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ZIEGLER&#39;</span><span class="p">;</span>
+<span class="n">Empty</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+</li>
+<li><p class="first">유효한 result set</p>
+<blockquote>
+<div class="highlight"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="o">-&gt;</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">category</span><span class="p">;</span>
+<span class="w">   </span><span class="o">+</span><span class="c1">-------------+-------------+---------------------+</span>
+<span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">category_id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">name</span><span class="w">        </span><span class="o">|</span><span class="w"> </span><span class="n">last_update</span><span class="w">         </span><span class="o">|</span>
+<span class="w">   </span><span class="o">+</span><span class="c1">-------------+-------------+---------------------+</span>
+<span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Action</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="mi">2006</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">04</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">|</span>
+<span class="w">   </span><span class="o">|</span><span class="w">           </span><span class="mi">2</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Animation</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="mi">2006</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">04</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">|</span>
+<span class="w">   </span><span class="o">|</span><span class="w">          </span><span class="mi">16</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Travel</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="mi">2006</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">15</span><span class="w"> </span><span class="mi">04</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mi">27</span><span class="w"> </span><span class="o">|</span>
+<span class="w">   </span><span class="o">+</span><span class="c1">-------------+-------------+---------------------+</span>
+
+<span class="mi">16</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span>
+</pre></div>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="query-1">
+<h2>Query 구문</h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">select</tt></dt>
+<dd>어떤 Columns들을 query의 result set에 포함할지 결정한다.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">from</tt></dt>
+<dd>어떤 테이블들에서 데이터를 수집할지, 그리고 어떻게 테이블들이 조인되어야 하는지 구분한다.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">where</tt></dt>
+<dd>원하지 않는 데이터를 filter한다.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">group by</tt></dt>
+<dd>rows를 column의 common-값을 기준으로 그룹화한다.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">having</tt></dt>
+<dd>원하지 않는 그룹을 filter한다.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal">order by</tt></dt>
+<dd>result set 테이블에서, rows를 재정렬한다.</dd>
+</dl>
+</li>
+</ul>
+</div>
+
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://github.com/l-y-jun">github</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://https://blog.naver.com/junehan-normal">usual posts</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
